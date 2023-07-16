@@ -5,6 +5,6 @@ export interface latestNumbersString {
 
 export interface getNumbers {
   _id: string,
-  winningNumbers: number[],
+  winnngNumbers: number[],
   __v: number
 }
