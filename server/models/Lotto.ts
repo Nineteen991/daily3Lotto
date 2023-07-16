@@ -7,8 +7,4 @@ const daily3 = new mongoose.Schema({
   }],
 })
 
-const lottoSchema = new mongoose.Schema({
-  games: [daily3]
-}, { timestamps: true })
-
-export default mongoose.model("Lotto", lottoSchema)
+export default mongoose.model("Lotto", daily3)
