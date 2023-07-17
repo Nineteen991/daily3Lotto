@@ -1,0 +1,42 @@
+*,
+*::after,
+*::before
+  margin: 0
+  padding: 0
+  box-sizing: inherit
+
+html 
+  box-sizing: border-box
+  font-size: 62.5%
+
+  @media (min-width: 3500px)
+    font-size: 187.5%
+
+body
+  height: 100vh
+  width: 100%
+
+a:link, a:visited, a:hover, a:active 
+  text-decoration: none 
+
+.container
+  min-height: 100vh
+  width: 100%
+  padding: 10%
+  font-family: 'Ubuntu'
+  color: #333
+  /* fallback for old browsers */
+  background: #1c92d2
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to bottom right, #f2fcfe, #1c92d2)
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to bottom right, #f2fcfe, #1c92d2)
+
+.line
+  margin: 2rem
+  border-top: 1px solid orangered
+
+.contains-2-divs
+  @media (min-width: 1000px)
+    display: flex
+    justify-content: center

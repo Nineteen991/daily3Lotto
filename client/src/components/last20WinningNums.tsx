@@ -1,16 +1,12 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useQuery } from '@tanstack/react-query'
-import axios from 'axios'
 
-import { WinningNums } from '../interfaces/winningNums'
+import getWinningNumbers from '../axiosRequests/getWinningNumbers'
+import { WinningNumsProps } from '../interfaces/winningNums'
 
-export default function MostCommonNums() {
-  const [winningNumbers, setWinningNumbers] = useState([[1,2,3]])
-  const getWinningNumbers = async () => {
-    const { data } = await axios.get<WinningNums>(`http://localhost:5000/api/v1/winning-numbers`)
-      // .then(res => setWinningNumbers(res.data.justTheArrays))
-    return data
-  }
+export default function Last20WinningNums({ 
+  winningNumbers, setWinningNumbers 
+}: WinningNumsProps) {
 
   const { data } = useQuery({
     queryKey: ['Winning Numbers'],
@@ -19,10 +15,11 @@ export default function MostCommonNums() {
 
   useEffect(() => {
     if (data) setWinningNumbers(data.justTheArrays)
-  }, [data])
+  }, [data, setWinningNumbers])
 
   return (
     <div className='winning-numbers-array'>
+      <h2 className='title-secondary'>Numbers from Last 20 Winning Games</h2>
       {
         winningNumbers.map((arr, index) => (
           <p className='winning-numbers' key={index}>
@@ -34,6 +31,7 @@ export default function MostCommonNums() {
           </p>
         ))
       }
+      <hr className='line winning-numbers-hr' />
     </div>
   )
 }
