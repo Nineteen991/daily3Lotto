@@ -34,7 +34,11 @@ export default function NumOccurances({ winningNumbers }: WinningProps) {
                   className={`table-row ${index % 2 === 0 ? 'even' : 'odd'}`} 
                   key={ index }
                 >
-                  <td className='table-data'>{ num }</td>
+                  <td 
+                    className={`table-data ${ i >= 7 ? 'freq' : ''}`}
+                  >
+                    { num }
+                  </td>
                   <td 
                     className={`table-data ${ i >= 7 ? 'freq' : ''}`}
                   >
